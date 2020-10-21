@@ -40,3 +40,31 @@ console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Err
 1603269722414	Marionette	INFO	Listening on port 56295
 1603269722472	Marionette	WARN	TLS certificate errors will be ignored for this session
 1603269736450	Marionette	INFO	Stopped listening on port 56295
+1603277748584	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofilexHd1ns"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603277752939	Marionette	INFO	Listening on port 56668
+1603277752962	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603277842349	Marionette	INFO	Stopped listening on port 56668
+1603277868162	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofileVAJBbh"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603277872659	Marionette	INFO	Listening on port 56774
+1603277872703	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603277896420	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofilesarqDS"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x1D0011,name=PBackgroundStorage::Msg_Observe) Channel error: cannot send/recv
+
+1603277900461	Marionette	INFO	Stopped listening on port 56774
+1603277900726	Marionette	INFO	Listening on port 56850
+1603277900778	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603277909324	Marionette	INFO	Stopped listening on port 56850
+1603277951109	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofile5JvlrW"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603277954673	Marionette	INFO	Listening on port 56964
+1603277954909	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603278059774	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofileCZKWSx"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603278062899	Marionette	INFO	Listening on port 57034
+1603278062987	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603278066108	Marionette	INFO	Stopped listening on port 56964
+1603278352720	Marionette	INFO	Stopped listening on port 57034
