@@ -1,12 +1,5 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import WebDriverException
-
 import requests
-
 import json
 import pdb
 import time
@@ -15,10 +8,7 @@ import sys
 import pickle
 import os
 
-import sys
-sys.path.append("/Users/tubby/Documents/Cycling/Pro-Training-Analysis")
-
-from activity import activity
+from monthIterator import monthIterator
 
 
 class stravaExtractor:
@@ -81,21 +71,8 @@ class stravaExtractor:
 		# for id in self.all_ids:
 		# 	self.getActivity(id)
 
-	def getNumYears(self):
-		return 2
-
-	def selectMonthInterval(self):
-		timeRange = self.browser.find_element_by_id(self.conf["time_interval_control"])
-		self.browser.execute_script("arguments[0].children[0].children[1].children[0].children[1].children[0].click()", timeRange)
-
-	def selectMonth(self):
-		pass
-
 	def getAllActivityIds(self):
-		# open firefox. go to profile. 
-		# Select year
-		# Select Month
-		# Click month. get all act ids. Channge month, repaeat. Change year repeat.
+		
 		self.openBrowser()
 		self.loadCookies()
 
@@ -104,15 +81,14 @@ class stravaExtractor:
 		# pdb.set_trace()
 
 
-		mi = monthIterator(self.athleteID, self.browser)
-		# years = self.getNumYears()
+		mi = monthIterator(self.athleteID, self.browser, self.conf)
 
 
-		for _ in range(years):
-		# for i in mi:
-			self.selectMonthInterval()
+		for i in mi:
+			# self.selectMonthInterval()
+			
+			# self.selectMonth()
 			time.sleep(2)
-			self.selectMonth()
 			for ele in self.browser.find_elements_by_class_name(self.conf["solo activity"]):
 				href = self.browser.execute_script("return arguments[0].children[1].children[0].href", ele)
 				id = href[href.rfind('/')+1:]
@@ -124,7 +100,6 @@ class stravaExtractor:
 				self.all_ids.append(id)
 
 
-		pdb.set_trace()
 		self.closeBrowser()
 
 		with open(self.athleteName+"_all_ids", 'w') as f:
@@ -143,30 +118,6 @@ class stravaExtractor:
 			print(self.athleteName+"_all_ids file not present")
 			self.all_ids = []
 
-class monthIterator:
-	def __init__(self, athleteID, browser):
-		self.athleteID = athleteID
-		self.browser = browser
-
-	def __iter__(self):
-		return self
-
-	def __next__(self):
 
 
 		
-
-# def tryThis():
-
-# 	# pdb.set_trace()
-
-def main():
-	# tryThis()
-	se = stravaExtractor("Alex Dowsett", "/pros/505408")
-	se.fetchAllActivities()
-
-	# se.getActivity("3842740325")
-
-
-if __name__ == "__main__":
-	main()
