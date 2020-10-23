@@ -13,77 +13,12 @@ import time
 import random
 import sys
 import pickle
-
 import os
 
+import sys
+sys.path.append("/Users/tubby/Documents/Cycling/Pro-Training-Analysis")
 
-class activity:
-	def __init__(self, actID, jar, conf):
-		self.actID = actID
-		self.jar = jar
-		self.conf = conf
-
-	
-	def fetchActivity(self):
-		self.getOverview()
-		self.processOverview()
-		self.getPowerSummary()
-		self.getLapData()
-		self.getStreamData()
-
-
-	def getOverview(self):
-		url = 'https://www.strava.com/activities/'+self.actID+'/overview'
-		response = requests.get(url, cookies=self.jar)
-
-		self.date_and_time  = response.text[response.text.find("<time>")+len("<time>")+1: response.text.find("</time>") - 1]
-		self.date = self.date_and_time[self.date_and_time.find(',')+1:]
-		self.html = response.text
-		self.dir = self.date + " - " + self.actID
-		try:
-			os.mkdir(self.dir)
-		except:
-			print("File already loaded. Skipping")
-
-	def processOverview(self):
-		try:
-			with open(os.path.join(self.dir, self.actID+"_overview.html"), "w") as f:
-				f.write(self.html)
-		except:
-			print("Failed to write overview for", self.actID)
-
-	def getPowerSummary(self):
-		url = 'https://www.strava.com/activities/'+self.actID+'/'+self.conf["power_summary"]
-		response = requests.get(url, cookies=self.jar)
-		try:
-			js = response.json()
-			with open(os.path.join(self.dir, self.actID+"_power_summary"), "w") as f:
-				json.dump(js, f)
-		except:
-			print("Failed to fetch power summary for", self.actID)
-
-	def getLapData(self):
-		url = 'https://www.strava.com/activities/'+self.actID+'/'+self.conf["lap_summary"]
-		response = requests.get(url, cookies=self.jar)
-		try:
-			js = response.json()
-			with open(os.path.join(self.dir, self.actID+"_lap_summary"), "w") as f:
-				json.dump(js, f)
-		except:
-			print("Failed to fetch lap data for", self.actID)
-
-	def getStreamData(self):
-		# pdb.set_trace()
-
-		url = 'https://www.strava.com/activities/'+self.actID+'/streams'
-		payload = {self.conf["stream_name"]: self.conf["streams"]}
-		response = requests.get(url, cookies=self.jar, params = payload)
-		try:
-			js = response.json()
-			with open(os.path.join(self.dir, self.actID+"_streams"), "w") as f:
-				json.dump(js, f)
-		except:
-			print("Failed to fetch streams for", self.actID)
+from activity import activity
 
 
 class stravaExtractor:
@@ -124,11 +59,13 @@ class stravaExtractor:
 		pickle.dump(self.browser.get_cookies() , open("cookies.pkl","wb"))
 
 	def loadCookies(self):
-		self.browser = webdriver.Firefox()
 		self.browser.get("https://www.strava.com")
 		self.browser.add_cookie(self.cookies["strava_remember_id"])
 		self.browser.add_cookie(self.cookies["strava_remember_token"])
 		# self.browser.get("https://www.strava.com/pros/1126469")
+
+	def openBrowser(self):
+		self.browser = webdriver.Firefox()
 
 	def closeBrowser(self):
 		self.browser.quit()
@@ -141,25 +78,82 @@ class stravaExtractor:
 	def fetchAllActivities(self):
 		self.getAllActivityIds()
 
-		for id in self.all_ids:
-			self.getActivity(id)
+		# for id in self.all_ids:
+		# 	self.getActivity(id)
+
+	def getNumYears(self):
+		return 2
+
+	def selectMonthInterval(self):
+		timeRange = self.browser.find_element_by_id(self.conf["time_interval_control"])
+		self.browser.execute_script("arguments[0].children[0].children[1].children[0].children[1].children[0].click()", timeRange)
+
+	def selectMonth(self):
+		pass
 
 	def getAllActivityIds(self):
-		# open firefox. go to profile. Click month. get all act ids. Channge month, repaeat. Change year repeat.
+		# open firefox. go to profile. 
+		# Select year
+		# Select Month
+		# Click month. get all act ids. Channge month, repaeat. Change year repeat.
+		self.openBrowser()
 		self.loadCookies()
+
+		self.browser.get("https://www.strava.com"+ self.athleteID)
+		time.sleep(2)
+		# pdb.set_trace()
+
+
+		mi = monthIterator(self.athleteID, self.browser)
+		# years = self.getNumYears()
+
+
+		for _ in range(years):
+		# for i in mi:
+			self.selectMonthInterval()
+			time.sleep(2)
+			self.selectMonth()
+			for ele in self.browser.find_elements_by_class_name(self.conf["solo activity"]):
+				href = self.browser.execute_script("return arguments[0].children[1].children[0].href", ele)
+				id = href[href.rfind('/')+1:]
+				self.all_ids.append(id)
+
+			for ele in self.browser.find_elements_by_class_name(self.conf["group activity"]):
+				href = self.browser.execute_script("return arguments[0].getElementsByTagName('li')[0].id", ele)
+				id = href[href.find('-')+1:]
+				self.all_ids.append(id)
+
+
+		pdb.set_trace()
+		self.closeBrowser()
+
+		with open(self.athleteName+"_all_ids", 'w') as f:
+			for i in self.all_ids:
+				f.write(i+"\n")
 
 
 	def loadAllActivityIds(self):
 
 		try:
 			with open(self.athleteName+"_all_ids", 'r') as f:
-				self.all_ids = json.load(f)
+				self.all_ids = f.read().split('\n')
+				self.all_ids = list(set(self.all_ids))
 
 		except:
 			print(self.athleteName+"_all_ids file not present")
 			self.all_ids = []
 
-		
+class monthIterator:
+	def __init__(self, athleteID, browser):
+		self.athleteID = athleteID
+		self.browser = browser
+
+	def __iter__(self):
+		return self
+
+	def __next__(self):
+
+
 		
 
 # def tryThis():
