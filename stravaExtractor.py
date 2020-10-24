@@ -7,9 +7,12 @@ import random
 import sys
 import pickle
 import os
+import threading
 
+import sys
+sys.path.append(".")
 from monthIterator import monthIterator
-
+from activity import activity
 
 class stravaExtractor:
 	def __init__(self, athleteName, athleteID):
@@ -66,10 +69,39 @@ class stravaExtractor:
 		self.all_ids.append(actID)
 
 	def fetchAllActivities(self):
-		self.getAllActivityIds()
-
+		# self.getAllActivityIds()
 		# for id in self.all_ids:
 		# 	self.getActivity(id)
+
+		threadsCount = 10
+		threads = []
+		l = len(self.all_ids)
+		print(l)
+		for i in range(threadsCount):
+			# threads.append(thread.start_new_thread ( stravaExtractor.sender, (self.jar, self.conf) )
+			x = threading.Thread(target=stravaExtractor.sender, args=(self.all_ids[int(i*(l/threadsCount)):int((i+1)*(l/threadsCount))], self.jar,self.conf,))
+			x.start()
+			threads.append(x)
+			# print(int(i*(l/threadsCount)),int((i+1)*(l/threadsCount)))
+		# map(lambda x:x.start(), threads )
+		# map(lambda x:x.join(), threads )
+		for t in threads:
+			t.join()
+		print("All done.")
+
+		# stravaExtractor.sender(self.all_ids, self.jar, self.conf)
+
+	def sender(actIDs, jar, conf):
+		for i in actIDs:
+			try:
+				a = activity(i, jar, conf)
+				a.fetchActivity()
+			except:
+				print("Failed to fetch", i)
+
+
+
+
 
 	def getAllActivityIds(self):
 		
@@ -88,7 +120,8 @@ class stravaExtractor:
 			# self.selectMonthInterval()
 			
 			# self.selectMonth()
-			time.sleep(2)
+			# time.sleep(2)
+			print("month found")
 			for ele in self.browser.find_elements_by_class_name(self.conf["solo activity"]):
 				href = self.browser.execute_script("return arguments[0].children[1].children[0].href", ele)
 				id = href[href.rfind('/')+1:]
