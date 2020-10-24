@@ -49,16 +49,8 @@ class activity:
 		self.date_and_time  = response.text[response.text.find("<time>")+len("<time>")+1: response.text.find("</time>") - 1]
 		self.date = self.date_and_time[self.date_and_time.find(',')+1:]
 		self.html = response.text
-<<<<<<< HEAD
 		self.processOverview()
 		# self.dir = self.date + " - " + self.actID
-=======
-		self.dir = self.date + " - " + self.actID
-		try:
-			os.mkdir(self.dir)
-		except:
-			print("File already loaded. Skipping")
->>>>>>> parent of 5afbe6f... Files can now be downloaded
 
 	def processOverview(self):
 		try:
