@@ -22,13 +22,13 @@ class activity:
 			self.someLoaded = True
 
 
-		if !overviewBad:
+		if overviewBad==False:
 			self.getOverview()
-		if !power_summaryBad:
+		if power_summaryBad==False:
 			self.getPowerSummary()
-		if !lap_summaryBad:
+		if lap_summaryBad==False:
 			self.getLapData()
-		if !streamsBad:
+		if streamsBad==False:
 			self.getStreamData()
 
 
