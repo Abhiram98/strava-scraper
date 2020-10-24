@@ -16,7 +16,9 @@ import pickle
 import os
 
 import sys
-sys.path.append(".")
+sys.path.append("/Users/tubby/Documents/Cycling/Pro-Training-Analysis")
+
+from activity import activity
 
 from stravaExtractor import stravaExtractor
 

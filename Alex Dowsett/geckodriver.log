@@ -1,0 +1,99 @@
+1603369187582	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofileoH9S0H"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603369193803	Marionette	INFO	Listening on port 63782
+1603369193886	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603369521435	Marionette	INFO	Stopped listening on port 63782
+1603369537263	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofile1LP4FX"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603369544479	Marionette	INFO	Listening on port 63974
+1603369544502	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: "Error while calling actor 'pagestyle's method 'getLayout'" "node is null"
+console.error: "getLayout@resource://devtools/server/actors/styles.js:989:5\nhandler@resource://devtools/shared/protocol/Actor.js:166:37\nonPacket@resource://devtools/server/devtools-server-connection.js:379:58\nreceiveMessage@resource://devtools/shared/transport/child-transport.js:66:16\n"
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new Error("Protocol error (TypeError): node is null from: server0.conn0.child2/pagestyle26 (resource://devtools/server/actors/styles.js:989:5)", "resource://devtools/shared/protocol/Front.js", 327))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+1603380130531	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofileEPQWKQ"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603380143874	Marionette	INFO	Listening on port 50706
+1603380143990	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603380153315	Marionette	INFO	Stopped listening on port 50706
+1603380257455	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofile0T9dMe"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603380261596	Marionette	INFO	Listening on port 50927
+1603380261706	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603380310192	Marionette	INFO	Stopped listening on port 50927
+1603380317959	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofilez069X0"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603380326570	Marionette	INFO	Listening on port 51060
+1603380326607	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603380337229	Marionette	INFO	Stopped listening on port 51060
+1603380514458	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofileQ77gBa"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603380517846	Marionette	INFO	Listening on port 51233
+1603380517870	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603380679850	Marionette	INFO	Stopped listening on port 51233
+1603380687965	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofile95Q6lB"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603380695057	Marionette	INFO	Listening on port 51372
+1603380695070	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603380819439	Marionette	INFO	Stopped listening on port 51372
+1603380837390	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofilenyqlgk"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603380845948	Marionette	INFO	Listening on port 51545
+1603380846028	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603380864940	Marionette	INFO	Stopped listening on port 51545
+1603380888621	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofileTtYHrP"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603380893388	Marionette	INFO	Listening on port 51713
+1603380893406	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603380939290	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofilerpBi65"
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1603380951571	Marionette	INFO	Stopped listening on port 51713
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603380960016	Marionette	INFO	Listening on port 51852
+1603380960078	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603381015980	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofileOwX1xn"
+1603381024354	Marionette	INFO	Stopped listening on port 51852
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603381029841	Marionette	INFO	Listening on port 52153
+1603381029928	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603381075250	Marionette	INFO	Stopped listening on port 52153
+console.error: (new TypeError("container.node.targetFront is null", "resource://devtools/client/inspector/markup/markup.js", 2274))
+JavaScript error: resource://devtools/client/fronts/walker.js, line 160: Error: The ValueGrip passed could not be translated to a NodeFront
+JavaScript error: resource://devtools/client/fronts/walker.js, line 160: Error: The ValueGrip passed could not be translated to a NodeFront
+JavaScript error: resource://devtools/client/fronts/walker.js, line 160: Error: The ValueGrip passed could not be translated to a NodeFront
+JavaScript error: resource://devtools/client/fronts/walker.js, line 160: Error: The ValueGrip passed could not be translated to a NodeFront
+1603442693681	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofileu8WlpP"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603442707011	Marionette	INFO	Listening on port 53488
+1603442707176	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603442760247	Marionette	INFO	Stopped listening on port 53488
