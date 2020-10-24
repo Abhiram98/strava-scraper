@@ -97,3 +97,12 @@ console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Err
 1603442707011	Marionette	INFO	Listening on port 53488
 1603442707176	Marionette	WARN	TLS certificate errors will be ignored for this session
 1603442760247	Marionette	INFO	Stopped listening on port 53488
+1603534259115	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/nb/ddtnjnv149l7lzk0l_vn15480000gq/T/rust_mozprofile2yFNTa"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603534278868	Marionette	INFO	Listening on port 53428
+1603534278919	Marionette	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
