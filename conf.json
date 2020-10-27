@@ -1,6 +1,6 @@
 {
 	"power_summary": "power_data",
-	"lap_summary": "lap_data",
+	"lap_summary": "lap_efforts",
 	"streams":[
 		"time", "timer_time", "heartrate", "distance", "moving", "grade_smooth", "watts", "velocity_smooth", "cadence", "watts_calc","temp"
 	],

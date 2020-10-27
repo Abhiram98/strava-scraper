@@ -7,8 +7,11 @@ import random
 import sys
 import pickle
 import os
+import threading
 
 from monthIterator import monthIterator
+from activity import activity
+# from dirSummary import dirSummary
 
 
 class stravaExtractor:
@@ -60,16 +63,35 @@ class stravaExtractor:
 	def closeBrowser(self):
 		self.browser.quit()
 
-	def getActivity(self, actID):
-		a = activity(actID)
-		a.fetchActivity()
-		self.all_ids.append(actID)
+	# def getActivity(self, actID):
+	# 	a = activity(actID)
+	# 	a.fetchActivity()
+	# 	# self.all_ids.append(actID)
 
 	def fetchAllActivities(self):
-		self.getAllActivityIds()
+		# self.getAllActivityIds()
 
 		# for id in self.all_ids:
 		# 	self.getActivity(id)
+		numThreads = 10
+		threads = []
+		l = len(self.all_ids)
+
+		for i in range(numThreads):
+
+			x = threading.Thread(target=stravaExtractor.sender, args=(self.all_ids[int(i*l/numThreads):int((i+1)*l/numThreads)], self.jar, self.conf, ))
+			x.start()
+			threads.append(x)
+
+		for i in range(numThreads):
+			threads[i].join()
+		print("all done.")
+
+	def sender(acts, jar, conf):
+		for i in acts:
+			a = activity(i, jar, conf)
+			a.fetchActivity()
+
 
 	def getAllActivityIds(self):
 		
@@ -118,6 +140,9 @@ class stravaExtractor:
 			print(self.athleteName+"_all_ids file not present")
 			self.all_ids = []
 
+	def getDirSummary(self):
 
+		d = dirSummary(self.athleteName)
+		d.get()
 
 		

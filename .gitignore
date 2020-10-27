@@ -1,6 +1,8 @@
 geckodriver.log
 pro_venv/
-Alex\ Dowsett/
+Alex Dowsett/
 __pycache__/
 pro_venv/
 helper.py
+cookies.pkl
+howmanydone.py
