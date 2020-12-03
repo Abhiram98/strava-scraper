@@ -1,8 +1,10 @@
-geckodriver.log
+Data and Scraping/geckodriver.log
 pro_venv/
 Alex Dowsett/
-__pycache__/
-pro_venv/
-helper.py
-cookies.pkl
-howmanydone.py
+Data and Scraping/__pycache__/
+Data and Scraping/helper.py
+Data and Scraping/cookies.pkl
+Data and Scraping/howmanydone.py
+Robert Gesink/
+Analysis/__pycache__/
+Analysis/test.py
