@@ -1,17 +1,32 @@
 import subprocess
 
-f = with open('.gitignore')
-txt = f.read().splitlines()
-rem = txt[:14] + txt[1014:]
+done = False
+while(done == False):
 
-f.close()
+	f = open('.gitignore')
+	txt = f.read().splitlines()
 
-f2 = open('.gitignore', 'w')
+	# try:
+	if len(txt) > 1015:
+		rem = txt[:15] + txt[1015:]
+	else:
+		done = True
+		rem = txt[:15]
+	# except:
+	# 	done = True
+	# 	rem = txt[:15]
 
-for i in rem[:-1]:
-	f2.write(i)
-	f2.write('\n')
-f2.write(rem[-1])
+	f.close()
 
+	f2 = open('.gitignore', 'w')
+	print("Writing to .gitignore", 1000, len(txt))
+	for i in rem[:-1]:
+		f2.write(i)
+		f2.write('\n')
+	f2.write(rem[-1])
+	f2.close()
 
-process = subprocess.Popen(['git', 'add', '.'],stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	process = subprocess.run(['git', 'add', '.'],stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	print("Git add done")
+	process = subprocess.run(['git', 'commit', '-m', "Adding raw files to repo"],stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	print("Git commit done")
