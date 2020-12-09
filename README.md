@@ -17,7 +17,12 @@ Run python Analysis/analyse.py --help
 Run python Data and Scraping/scraper.py login
 
 
-<b>Step 2.</b> Scrape data with given athlete name and athlete id. 
+<b>Step 2.</b>
+
+Load all activity ids of a strava athlete.
+Example - python scraper.py IDS "Alex Dowsett" /pros/505408
+
+<b>Step 3.</b> Scrape data with given athlete name and athlete id. 
 
 Example - python scraper.py Download "Alex Dowsett" /pros/505408
 
