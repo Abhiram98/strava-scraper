@@ -15,3 +15,7 @@ Data and Scraping/Robert Gesink/*/Icon
 Data and Scraping/Chag Haga
 *.html
 helper.py
+.DS_Store
+Data and Scraping/.DS_Store
+Data and Scraping/Robert Gesink/.DS_Store
+test.csv
