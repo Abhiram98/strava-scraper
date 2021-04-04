@@ -1,6 +1,8 @@
 # Strava-Analysis
 
 Dependencies<br>
+To Install, run
+pip install -r requirements.txt
 • Selenium(https://selenium-python.readthedocs.io/installation.html)<br>
 • requests<br>
 • bs4<br>
