@@ -16,7 +16,7 @@ pip install -r requirements.txt
 ```
 python <path-to-repo>/scraper login
 ```
-==be sure to check the 'remember me' box before logging in.==
+ℹ️ be sure to check the 'remember me' box before logging in.
 
 
 <b>Step 2.</b>
@@ -26,8 +26,9 @@ Example:
 ```
 python scraper.py collect -n "Alex Dowsett" -i /pros/505408
 ```
+ℹ️ This step may take a while 
 
-== This step may take a while ==
+
 <b>Step 3.</b> Scrape data with the athlete's name and athlete id. 
 
 Example:
