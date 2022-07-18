@@ -1,0 +1,14 @@
+{
+	"power_summary": "power_data",
+	"lap_summary": "lap_efforts",
+	"streams":[
+		"time", "timer_time", "heartrate", "distance", "moving", "grade_smooth", "watts", "velocity_smooth", "cadence", "watts_calc","temp"
+	],
+	"stream_name":"stream_types[]",
+	"time_interval_control": "interval-graph-controls",
+	"solo activity": "entry-title.activity-title",
+	"group activity": "feed-entry.group-activity",
+	"month selection": "interval.selectable",
+	"year selector": "interval-date-range",
+	"any activity": "feed-entry"
+}
