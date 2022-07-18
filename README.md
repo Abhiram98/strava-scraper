@@ -22,6 +22,7 @@ python <path-to-repo>/scraper login
 <b>Step 2.</b>
 
 Load all activity ids of a strava athlete, with the athlete's name and strava athlete id(from the url after "https://strava.com/")
+
 Example:
 ```
 python <path-to-repo>/scraper collect -n "Alex Dowsett" -i /pros/505408
