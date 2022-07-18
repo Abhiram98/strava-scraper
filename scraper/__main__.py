@@ -48,26 +48,29 @@ def main():
 
 	print("Start Time", datetime.now())
 
+	if os.path.isdir('data') == False:
+		os.mkdir('data')
+
 	if args['command'] == "login":
 		se = stravaExtractor()
 		se.login()
 
-
-	athleteName = args['name']
-	athleteID = args['id']
-	# se = stravaExtractor("Alex Dowsett", "/pros/505408")
-	se = stravaExtractor(athleteName, athleteID)
-	if(args['command'] == "download"):
-		se.fetchAllActivities()
-	elif(args['command'] == "collect"):
-		if args['select'] == '1':
-			se.getSelectMonths()
-		else:
-			se.getAllActivityIds()
-	elif (args['command'] == "overview"):
-		se.getDirSummary()
 	else:
-		raise Exception("Command does not exist")
+		athleteName = args['name']
+		athleteID = args['id']
+		# se = stravaExtractor("Alex Dowsett", "/pros/505408")
+		se = stravaExtractor(athleteName, athleteID)
+		if(args['command'] == "download"):
+			se.fetchAllActivities()
+		elif(args['command'] == "collect"):
+			if args['select'] == '1':
+				se.getSelectMonths()
+			else:
+				se.getAllActivityIds()
+		elif (args['command'] == "overview"):
+			se.getDirSummary()
+		else:
+			raise Exception("Command does not exist")
 
 	print("End time", datetime.now())
 if __name__ == "__main__":

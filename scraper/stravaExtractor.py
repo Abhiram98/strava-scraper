@@ -18,7 +18,7 @@ from dirSummary import dirSummary
 class stravaExtractor:
 	def __init__(self, athleteName = None, athleteID = None):
 		if (athleteName==None and athleteID == None):
-			print("No name and athlete id provided. Exiting")
+			print("No name and athlete id provided.")
 			return
 		self.athleteName = athleteName
 		self.athleteID = athleteID
@@ -52,7 +52,8 @@ class stravaExtractor:
 		self.browser.get("https://www.strava.com")
 		input("Hit Return after logging in to strava on the browser that pops up")
 
-		pickle.dump(self.browser.get_cookies() , open("Data and Scraping/"+"cookies.pkl","wb"))
+		pickle.dump(self.browser.get_cookies() , open("data/cookies.pkl","wb"))
+		self.closeBrowser()
 
 	def loadCookies(self):
 		self.browser.get("https://www.strava.com")
