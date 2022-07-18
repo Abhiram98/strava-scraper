@@ -24,7 +24,7 @@ python <path-to-repo>/scraper login
 Load all activity ids of a strava athlete, with the athlete's name and strava athlete id(from the url after "https://strava.com/")
 Example:
 ```
-python scraper.py collect -n "Alex Dowsett" -i /pros/505408
+python <path-to-repo>/scraper collect -n "Alex Dowsett" -i /pros/505408
 ```
 ℹ️ This step may take a while 
 
@@ -33,7 +33,7 @@ python scraper.py collect -n "Alex Dowsett" -i /pros/505408
 
 Example:
 ```
-python scraper.py download "Alex Dowsett" /pros/505408
+python <path-to-repo>/scraper download "Alex Dowsett" /pros/505408
 ```
 
 The data is saves in the "data" folder, under the athlete's name.
