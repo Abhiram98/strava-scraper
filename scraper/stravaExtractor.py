@@ -9,7 +9,6 @@ import pickle
 import os
 import threading
 import csv
-import pandas as pd
 
 from monthIterator import monthIterator
 from activity import activity
@@ -189,8 +188,5 @@ class stravaExtractor:
 
 
 	def delete_duplicates_map(self):
-		# df = pd.read_csv(self.athleteName+"_map.csv")
-		# if len(set(df.ID)) != len(df):
-		# 	print("deleting duplicates from _map")
 		pass
 
