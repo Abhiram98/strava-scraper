@@ -16,10 +16,9 @@ import os
 import argparse
 import sys
 from datetime import datetime
-sys.path.append("/Users/tubby/Documents/Cycling/Pro-Training-Analysis")
 
+#helper imports
 from activity import activity
-
 from stravaExtractor import stravaExtractor
 
 
