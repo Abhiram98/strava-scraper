@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 import requests
 import json
 import pdb
@@ -15,6 +16,7 @@ from activity import activity
 from dirSummary import dirSummary
 
 
+
 class stravaExtractor:
 	def __init__(self, athleteName = None, athleteID = None):
 		if (athleteName==None and athleteID == None):
@@ -24,7 +26,7 @@ class stravaExtractor:
 		self.athleteID = athleteID
 		self.cookies = {}
 		print("Current wd - ", os.getcwd())
-		with open("conf.json") as f:
+		with open("../scraper/conf.json") as f:
 			self.conf = json.load(f)
 
 		cookies = pickle.load(open("cookies.pkl", "rb"))
@@ -52,7 +54,7 @@ class stravaExtractor:
 		self.browser.get("https://www.strava.com")
 		input("Hit Return after logging in to strava on the browser that pops up")
 
-		pickle.dump(self.browser.get_cookies() , open("data/cookies.pkl","wb"))
+		pickle.dump(self.browser.get_cookies() , open("cookies.pkl","wb"))
 		self.closeBrowser()
 
 	def loadCookies(self):
@@ -94,6 +96,34 @@ class stravaExtractor:
 			a = activity(i, jar, conf, athleteName)
 			a.fetchActivity()
 
+
+	def getActivityIdsFromPage(self):
+		# for ele in self.browser.find_elements(By.CLASS_NAME, self.conf["solo activity"]):
+		# 	href = self.browser.execute_script("return arguments[0].children[1].children[0].href", ele)
+		# 	id = href[href.rfind('/')+1:]
+		# 	self.all_ids.append(id)
+
+		# for ele in self.browser.find_elements(By.CLASS_NAME, self.conf["group activity"]):
+		# 	href = self.browser.execute_script("return arguments[0].getElementsByTagName('li')[0].id", ele)
+		# 	id = href[href.find('-')+1:]
+		# 	self.all_ids.append(id)
+		total_failed = 0
+		for ele in self.browser.find_elements(By.CSS_SELECTOR, self.conf["any activity"]):
+			map_element = ele.find_element(By.CSS_SELECTOR, self.conf["map_finder"])
+			print("Map_element -> ", map_element)
+			try:
+				href = self.browser.execute_script("return arguments[0].parentElement.href", map_element)
+				id = href[href.rfind('/')+1:]
+				print("Found id - ", id)
+				self.all_ids.append(id)
+			except:
+				print('-'*20)
+				print("Couldn't find the href for this -")
+				print(ele.text)
+				print('-'*20)
+				total_failed +=1
+		print("total_failed", total_failed)
+
 	def getSelectMonths(self):
 		self.openBrowser()
 		self.loadCookies()
@@ -104,16 +134,7 @@ class stravaExtractor:
 		ip = input("Get more months(y/n)")
 		# for i in mi:
 		while ip == 'y':
-			for ele in self.browser.find_elements_by_class_name(self.conf["solo activity"]):
-				href = self.browser.execute_script("return arguments[0].children[1].children[0].href", ele)
-				id = href[href.rfind('/')+1:]
-				self.all_ids.append(id)
-
-			for ele in self.browser.find_elements_by_class_name(self.conf["group activity"]):
-				href = self.browser.execute_script("return arguments[0].getElementsByTagName('li')[0].id", ele)
-				id = href[href.find('-')+1:]
-				self.all_ids.append(id)
-
+			self.getActivityIdsFromPage()
 			ip = input("Get more months(y/n)")	
 
 		self.closeBrowser()
@@ -137,17 +158,11 @@ class stravaExtractor:
 
 		try:
 			for i in mi:
-				for ele in self.browser.find_elements_by_class_name(self.conf["solo activity"]):
-					href = self.browser.execute_script("return arguments[0].children[1].children[0].href", ele)
-					id = href[href.rfind('/')+1:]
-					self.all_ids.append(id)
+				self.getActivityIdsFromPage()
 
-				for ele in self.browser.find_elements_by_class_name(self.conf["group activity"]):
-					href = self.browser.execute_script("return arguments[0].getElementsByTagName('li')[0].id", ele)
-					id = href[href.find('-')+1:]
-					self.all_ids.append(id)
 		except:
 			print("failed at some point.")
+			raise
 
 
 		self.closeBrowser()

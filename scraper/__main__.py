@@ -47,9 +47,15 @@ def main():
 	args = vars(my_parser.parse_args())
 
 	print("Start Time", datetime.now())
+	print("Current wd - ", os.getcwd())
+	file_path = os.getcwd() + "/" + __file__
+	data_folder = file_path.split("strava-scraper/scraper")[0] + \
+					"strava-scraper/data"
 
-	if os.path.isdir('data') == False:
+	if os.path.isdir(data_folder) == False:
 		os.mkdir('data')
+	os.chdir(data_folder)
+	print("new working dir -", os.getcwd())
 
 	if args['command'] == "login":
 		se = stravaExtractor()
@@ -60,17 +66,22 @@ def main():
 		athleteID = args['id']
 		# se = stravaExtractor("Alex Dowsett", "/pros/505408")
 		se = stravaExtractor(athleteName, athleteID)
-		if(args['command'] == "download"):
-			se.fetchAllActivities()
-		elif(args['command'] == "collect"):
-			if args['select'] == '1':
-				se.getSelectMonths()
+
+		try:
+			if(args['command'] == "download"):
+				se.fetchAllActivities()
+			elif(args['command'] == "collect"):
+				if args['select'] == '1':
+					se.getSelectMonths()
+				else:
+					se.getAllActivityIds()
+			elif (args['command'] == "overview"):
+				se.getDirSummary()
 			else:
-				se.getAllActivityIds()
-		elif (args['command'] == "overview"):
-			se.getDirSummary()
-		else:
-			raise Exception("Command does not exist")
+				raise Exception("Command does not exist")
+		except Exception as e:
+			se.closeBrowser()
+			raise e
 
 	print("End time", datetime.now())
 if __name__ == "__main__":

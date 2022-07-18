@@ -36,11 +36,11 @@ class monthIterator:
 
 	def getNextMonth(self):
 		try:
-			firstActivity = self.browser.find_element_by_class_name(self.conf["any activity"])
+			firstActivity = self.browser.find_element(By.CSS_SELECTOR, self.conf["any activity"])
 		except:
 			print("No activity found")
 			return 
-		months = self.browser.find_elements_by_class_name(self.conf['month selection'])
+		months = self.browser.find_elements(By.CLASS_NAME, self.conf['month selection'])
 		try:
 			months[self.curMonth-1].click()
 		except:
@@ -61,10 +61,10 @@ class monthIterator:
 
 	def getNextYear(self):
 		if(self.curYear < self.numYears-1):
-			firstActivity = self.browser.find_element_by_class_name(self.conf["any activity"])
-			self.year_selector = self.browser.find_element_by_id(self.conf["year selector"])
+			firstActivity = self.browser.find_element(By.CSS_SELECTOR, self.conf["any activity"])
+			self.year_selector = self.browser.find_element(By.ID ,self.conf["year selector"])
 			self.year_selector.click()
-			self.year_selector.find_elements_by_tag_name("li")[self.curYear].click()
+			self.year_selector.find_elements(By.TAG_NAME,"li")[self.curYear].click()
 			try:
 			    element = WebDriverWait(self.browser, 100).until(
 			        EC.staleness_of(firstActivity)
@@ -80,12 +80,12 @@ class monthIterator:
 
 	
 	def getNumYears(self):
-		self.year_selector = self.browser.find_element_by_id(self.conf["year selector"])
-		self.numYears = len(self.year_selector.find_elements_by_tag_name("li"))+1
+		self.year_selector = self.browser.find_element(By.ID, self.conf["year selector"])
+		self.numYears = len(self.year_selector.find_elements(By.TAG_NAME, "li"))+1
 
 	def selectMonthInterval(self):
-		self.weekIntervals = self.browser.find_element_by_class_name(self.conf['month selection'])
-		timeRange = self.browser.find_element_by_id(self.conf["time_interval_control"])
+		self.weekIntervals = self.browser.find_element(By.CLASS_NAME, self.conf['month selection'])
+		timeRange = self.browser.find_element(By.ID, self.conf["time_interval_control"])
 		self.browser.execute_script("arguments[0].children[0].children[1].children[0].children[1].children[0].click()", timeRange)
 		# Wait for staleness
 

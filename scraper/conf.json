@@ -10,5 +10,6 @@
 	"group activity": "feed-entry.group-activity",
 	"month selection": "interval.selectable",
 	"year selector": "interval-date-range",
-	"any activity": "feed-entry"
+	"any activity": "div[data-testid='web-feed-entry']",
+	"map_finder":"img[alt='Map of the activity']"
 }
