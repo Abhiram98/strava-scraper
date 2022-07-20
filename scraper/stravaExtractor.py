@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 import requests
 import json
 import pdb
@@ -109,10 +110,18 @@ class stravaExtractor:
 		# 	self.all_ids.append(id)
 		total_failed = 0
 		for ele in self.browser.find_elements(By.CSS_SELECTOR, self.conf["any activity"]):
-			map_element = ele.find_element(By.CSS_SELECTOR, self.conf["map_finder"])
-			print("Map_element -> ", map_element)
+
 			try:
-				href = self.browser.execute_script("return arguments[0].parentElement.href", map_element)
+				activity_title = ele.find_element(By.CSS_SELECTOR, self.conf["activity_name"])
+			except NoSuchElementException:
+				print("This wasn't actually an Acitvity.")
+				print(ele.text)
+				continue
+
+			print("activity_title -> ", activity_title)
+			try:
+				href = self.browser.execute_script("return arguments[0].href", activity_title)
+
 				id = href[href.rfind('/')+1:]
 				print("Found id - ", id)
 				self.all_ids.append(id)
