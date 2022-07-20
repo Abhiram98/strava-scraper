@@ -2,7 +2,7 @@ data/
 .DS_Store
 geckodriver.log
 scraper_venv/
-
+cookies.pkl
 
 
 Data and Scraping/geckodriver.log
